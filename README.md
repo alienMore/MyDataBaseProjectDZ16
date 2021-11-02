@@ -1,5 +1,5 @@
 <h1 align="center">ДЗ 16</h1>
-<h1 align="center">MySQL Performance optimization</h1>
+<h1 align="center">MySQL Performance optimisation</h1>
 
 ---
 ### Create database ###
