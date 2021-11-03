@@ -15,15 +15,15 @@ mysql -u root -p AdventureWorks < AdventureWorks-MySQL-with-FKs.sql
 ### FORMAT=TRADITIONAL ###
 ```sql
 EXPLAIN FORMAT=TRADITIONAL SELECT d.Name AS ProductSubcategoryName,
-CASE
-  WHEN (GROUPING(a.Name)=1) THEN 'MIN/MAX price'
-  ELSE a.Name
-END AS ProductName,
-MIN(c.TotalDue) AS MINTotalDue,
-MAX(c.TotalDue) AS MAXTotalDue,
-count(*) AS count,
-GROUPING(d.Name) AS grouping_ProductSubcategoryName,
-GROUPING(a.Name) AS grouping_ProductName
+  CASE
+    WHEN (GROUPING(a.Name)=1) THEN 'MIN/MAX price'
+    ELSE a.Name
+  END AS ProductName,
+  MIN(c.TotalDue) AS MINTotalDue,
+  MAX(c.TotalDue) AS MAXTotalDue,
+  count(*) AS count,
+  GROUPING(d.Name) AS grouping_ProductSubcategoryName,
+  GROUPING(a.Name) AS grouping_ProductName
 FROM product a
 LEFT JOIN salesorderdetail b
   ON a.ProductID = b.Productid
@@ -37,15 +37,15 @@ GROUP BY d.Name,a.Name WITH ROLLUP;
 ### FORMAT=TREE ###
 ```sql
 EXPLAIN FORMAT=TREE SELECT d.Name AS ProductSubcategoryName,
-CASE
-  WHEN (GROUPING(a.Name)=1) THEN 'MIN/MAX price'
-  ELSE a.Name
-END AS ProductName,
-MIN(c.TotalDue) AS MINTotalDue,
-MAX(c.TotalDue) AS MAXTotalDue,
-count(*) AS count,
-GROUPING(d.Name) AS grouping_ProductSubcategoryName,
-GROUPING(a.Name) AS grouping_ProductName
+  CASE
+    WHEN (GROUPING(a.Name)=1) THEN 'MIN/MAX price'
+    ELSE a.Name
+  END AS ProductName,
+  MIN(c.TotalDue) AS MINTotalDue,
+  MAX(c.TotalDue) AS MAXTotalDue,
+  count(*) AS count,
+  GROUPING(d.Name) AS grouping_ProductSubcategoryName,
+  GROUPING(a.Name) AS grouping_ProductName
 FROM product a
 LEFT JOIN salesorderdetail b
   ON a.ProductID = b.Productid
@@ -72,15 +72,15 @@ GROUP BY d.Name,a.Name WITH ROLLUP;
 ### FORMAT=JSON ###
 ```sql
 EXPLAIN FORMAT=JSON SELECT d.Name AS ProductSubcategoryName,
-CASE
-  WHEN (GROUPING(a.Name)=1) THEN 'MIN/MAX price'
-  ELSE a.Name
-END AS ProductName,
-MIN(c.TotalDue) AS MINTotalDue,
-MAX(c.TotalDue) AS MAXTotalDue,
-count(*) AS count,
-GROUPING(d.Name) AS grouping_ProductSubcategoryName,
-GROUPING(a.Name) AS grouping_ProductName
+  CASE
+    WHEN (GROUPING(a.Name)=1) THEN 'MIN/MAX price'
+    ELSE a.Name
+  END AS ProductName,
+  MIN(c.TotalDue) AS MINTotalDue,
+  MAX(c.TotalDue) AS MAXTotalDue,
+  count(*) AS count,
+  GROUPING(d.Name) AS grouping_ProductSubcategoryName,
+  GROUPING(a.Name) AS grouping_ProductName
 FROM product a
 LEFT JOIN salesorderdetail b
   ON a.ProductID = b.Productid
@@ -225,15 +225,15 @@ GROUP BY d.Name,a.Name WITH ROLLUP;
 ```sql
 --Поменял местами таблицы c и d в left join
 EXPLAIN FORMAT=TREE SELECT d.Name AS ProductSubcategoryName,
-CASE
-  WHEN (GROUPING(a.Name)=1) THEN 'MIN/MAX price'
-  ELSE a.Name
-END AS ProductName,
-MIN(c.TotalDue) AS MINTotalDue,
-MAX(c.TotalDue) AS MAXTotalDue,
-count(*) AS count,
-GROUPING(d.Name) AS grouping_ProductSubcategoryName,
-GROUPING(a.Name) AS grouping_ProductName
+  CASE
+    WHEN (GROUPING(a.Name)=1) THEN 'MIN/MAX price'
+    ELSE a.Name
+  END AS ProductName,
+  MIN(c.TotalDue) AS MINTotalDue,
+  MAX(c.TotalDue) AS MAXTotalDue,
+  count(*) AS count,
+  GROUPING(d.Name) AS grouping_ProductSubcategoryName,
+  GROUPING(a.Name) AS grouping_ProductName
 FROM product a
 LEFT JOIN salesorderdetail b
   ON a.ProductID = b.Productid
@@ -248,15 +248,15 @@ GROUP BY d.Name,a.Name WITH ROLLUP;
 ```sql
 --Вынес left join таблицы d на первое место и еще сильнее увеличил скорость запроса
 EXPLAIN FORMAT=TREE SELECT d.Name AS ProductSubcategoryName,
-CASE
-  WHEN (GROUPING(a.Name)=1) THEN 'MIN/MAX price'
-  ELSE a.Name
-END AS ProductName,
-MIN(c.TotalDue) AS MINTotalDue,
-MAX(c.TotalDue) AS MAXTotalDue,
-count(*) AS count,
-GROUPING(d.Name) AS grouping_ProductSubcategoryName,
-GROUPING(a.Name) AS grouping_ProductName
+  CASE
+    WHEN (GROUPING(a.Name)=1) THEN 'MIN/MAX price'
+    ELSE a.Name
+  END AS ProductName,
+  MIN(c.TotalDue) AS MINTotalDue,
+  MAX(c.TotalDue) AS MAXTotalDue,
+  count(*) AS count,
+  GROUPING(d.Name) AS grouping_ProductSubcategoryName,
+  GROUPING(a.Name) AS grouping_ProductName
 FROM product a
 LEFT JOIN productsubcategory d
   ON a.ProductSubcategoryID = d.ProductSubcategoryID
