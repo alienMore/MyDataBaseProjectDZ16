@@ -26,11 +26,11 @@ GROUPING(d.Name) AS grouping_ProductSubcategoryName,
 GROUPING(a.Name) AS grouping_ProductName
 FROM product a
 LEFT JOIN salesorderdetail b
-ON a.ProductID = b.Productid
+  ON a.ProductID = b.Productid
 LEFT JOIN salesorderheader c
-ON b.SalesOrderID = c.SalesOrderID
+  ON b.SalesOrderID = c.SalesOrderID
 LEFT JOIN productsubcategory d
-ON a.ProductSubcategoryID = d.ProductSubcategoryID
+  ON a.ProductSubcategoryID = d.ProductSubcategoryID
 GROUP BY d.Name,a.Name WITH ROLLUP;
 ```
 ![](traditional.JPG)
@@ -48,11 +48,11 @@ GROUPING(d.Name) AS grouping_ProductSubcategoryName,
 GROUPING(a.Name) AS grouping_ProductName
 FROM product a
 LEFT JOIN salesorderdetail b
-ON a.ProductID = b.Productid
+  ON a.ProductID = b.Productid
 LEFT JOIN salesorderheader c
-ON b.SalesOrderID = c.SalesOrderID
+  ON b.SalesOrderID = c.SalesOrderID
 LEFT JOIN productsubcategory d
-ON a.ProductSubcategoryID = d.ProductSubcategoryID
+  ON a.ProductSubcategoryID = d.ProductSubcategoryID
 GROUP BY d.Name,a.Name WITH ROLLUP;
 ```
 ```bash
@@ -83,11 +83,11 @@ GROUPING(d.Name) AS grouping_ProductSubcategoryName,
 GROUPING(a.Name) AS grouping_ProductName
 FROM product a
 LEFT JOIN salesorderdetail b
-ON a.ProductID = b.Productid
+  ON a.ProductID = b.Productid
 LEFT JOIN salesorderheader c
-ON b.SalesOrderID = c.SalesOrderID
+  ON b.SalesOrderID = c.SalesOrderID
 LEFT JOIN productsubcategory d
-ON a.ProductSubcategoryID = d.ProductSubcategoryID
+  ON a.ProductSubcategoryID = d.ProductSubcategoryID
 GROUP BY d.Name,a.Name WITH ROLLUP;
 ```
 ```JSON
@@ -236,14 +236,11 @@ GROUPING(d.Name) AS grouping_ProductSubcategoryName,
 GROUPING(a.Name) AS grouping_ProductName
 FROM product a
 LEFT JOIN salesorderdetail b
-ON a.ProductID = b.Productid
-
+  ON a.ProductID = b.Productid
 LEFT JOIN productsubcategory d
-ON a.ProductSubcategoryID = d.ProductSubcategoryID
-
+  ON a.ProductSubcategoryID = d.ProductSubcategoryID
 LEFT JOIN salesorderheader c
-ON b.SalesOrderID = c.SalesOrderID
-
+  ON b.SalesOrderID = c.SalesOrderID
 GROUP BY d.Name,a.Name WITH ROLLUP;
 ```
 ![](optimisation.JPG)
@@ -261,16 +258,12 @@ count(*) AS count,
 GROUPING(d.Name) AS grouping_ProductSubcategoryName,
 GROUPING(a.Name) AS grouping_ProductName
 FROM product a
-
 LEFT JOIN productsubcategory d
-ON a.ProductSubcategoryID = d.ProductSubcategoryID
-
+  ON a.ProductSubcategoryID = d.ProductSubcategoryID
 LEFT JOIN salesorderdetail b
-ON a.ProductID = b.Productid
-
+  ON a.ProductID = b.Productid
 LEFT JOIN salesorderheader c
-ON b.SalesOrderID = c.SalesOrderID
-
+  ON b.SalesOrderID = c.SalesOrderID
 GROUP BY d.Name,a.Name WITH ROLLUP;
 ```
 ![](optimisation1.JPG)
